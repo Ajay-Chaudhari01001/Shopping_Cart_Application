@@ -38,3 +38,5 @@ Here’s a list of features that this project includes and you’ll be graded on
 
 ### Profile Page you can change your information
 <img width="943" alt="Screenshot 2023-05-31 154446" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/faae3902-e6a9-4b8a-81a9-db5012c12f2c">
+<img width="931" alt="Screenshot 2023-05-31 195236" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/d4b37ceb-8b5c-4b1c-a3ca-a5455e2e5d3b">
+
