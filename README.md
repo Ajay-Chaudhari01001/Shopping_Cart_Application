@@ -19,22 +19,23 @@ Here’s a list of features that this project includes and you’ll be graded on
 7) Basic HTML & CSS animations and styling will be tested too
 
 ### Home Page
-<img width="946" alt="Screenshot 2023-05-31 154334" src="https://github.com/Ajay-Chaudhari01001/testing/assets/55138445/f17107a7-1e88-4b70-87e7-3efa3200ecff">
+<img width="946" alt="Screenshot 2023-05-31 154334" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/2ff24413-0121-41f5-bbee-411b93c68609">
 
 ### Shopping Page after login
-<img width="943" alt="Screenshot 2023-05-31 154549" src="https://github.com/Ajay-Chaudhari01001/testing/assets/55138445/0affc99b-0fea-417f-98c0-d79e58ca4098">
+<img width="943" alt="Screenshot 2023-05-31 154549" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/b8e83b3a-388b-4d21-8da7-03d1f977e1ca">
 
 ### Women's Products 
-<img width="941" alt="Screenshot 2023-05-31 154633" src="https://github.com/Ajay-Chaudhari01001/testing/assets/55138445/2d9bed05-d5d2-406d-8fd2-dc88533eda10">
+<img width="941" alt="Screenshot 2023-05-31 154633" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/2c21ed0c-b0d1-44f9-8de3-c539ea79dfb4">
 
 ### Jwelery Products
-<img width="941" alt="Screenshot 2023-05-31 154657" src="https://github.com/Ajay-Chaudhari01001/testing/assets/55138445/12fcdb28-a565-4e09-b6b1-310e0e7c7655">
+<img width="941" alt="Screenshot 2023-05-31 154657" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/e33fd63c-676b-484a-b750-962c920ccc6c">
 
 ### Electronics Products
-<img width="946" alt="Screenshot 2023-05-31 154718" src="https://github.com/Ajay-Chaudhari01001/testing/assets/55138445/84e4494a-16aa-4d5d-9793-14a95dc3dab9">
+<img width="946" alt="Screenshot 2023-05-31 154718" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/1bf7a27c-f39e-4f52-9d3d-65c678fc7c5d">
 
 ### Add to Cart Page
-<img width="941" alt="Screenshot 2023-05-31 154823" src="https://github.com/Ajay-Chaudhari01001/testing/assets/55138445/644254f5-8206-4eba-88e1-462120f24665">
+<img width="943" alt="Screenshot 2023-05-31 154446" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/c03b5e43-ad10-4a64-b959-6319521eb8aa">
+
 
 ### Profile Page you can change your information
-<img width="943" alt="Screenshot 2023-05-31 154446" src="https://github.com/Ajay-Chaudhari01001/testing/assets/55138445/f5003115-3d5e-49d7-a682-7bf0ce1e0939">
+
