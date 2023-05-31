@@ -34,8 +34,7 @@ Here’s a list of features that this project includes and you’ll be graded on
 <img width="946" alt="Screenshot 2023-05-31 154718" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/1bf7a27c-f39e-4f52-9d3d-65c678fc7c5d">
 
 ### Add to Cart Page
-<img width="943" alt="Screenshot 2023-05-31 154446" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/c03b5e43-ad10-4a64-b959-6319521eb8aa">
-
+<img width="941" alt="Screenshot 2023-05-31 154823" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/45e0ced3-64b3-4949-997d-3ef1b9ece219">
 
 ### Profile Page you can change your information
-
+<img width="943" alt="Screenshot 2023-05-31 154446" src="https://github.com/Ajay-Chaudhari01001/Shopping_Cart_Application/assets/55138445/faae3902-e6a9-4b8a-81a9-db5012c12f2c">
