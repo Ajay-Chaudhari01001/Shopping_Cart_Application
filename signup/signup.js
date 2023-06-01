@@ -67,23 +67,3 @@ function generateString(length) {
 
 
 
-// route so that before signup it will not go to profile on cliking profile button
-// function route(){
-
-//     let Object = window.localStorage.getItem("token");
-//     console.log(Object);
-//     if(Object!=null)
-//     {
-//         window.location.href="Profile.html";
-//     }
-//     else{
-//         window.location.href="index.html";
-//     }
-// }
-
-
-// function getuser(){
-//     let object =JSON.parse(window.localStorage.getItem("userDetails"));
-//     console.log(object.name);
-//     document.getElementById("email").innerHTML= object.email;
-// }
