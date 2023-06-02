@@ -9,7 +9,6 @@ function loginProcess() {
     alert("No user data found or No one has singed up yet...");
     return;
   }
-
   const curntUser = UsrSavedData.find(user => user.email === email && user.password === password)
   // console.log(curntUser)
 
