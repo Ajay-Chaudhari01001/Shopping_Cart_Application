@@ -20,6 +20,7 @@ function saveinfo() {
         localStorage.setItem("curntUser", JSON.stringify(CurrentUserData));
         localStorage.setItem("Usr", JSON.stringify(UsrSavedData))
         // console.log('CurrentUserData:', CurrentUserData);
+        alert("Data save successful...);
     }
     else {
         alert("No user data found.");
