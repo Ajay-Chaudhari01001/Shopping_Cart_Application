@@ -9,12 +9,14 @@ var productsArr = [];
 var counter = 0;
 var myArr = [];
 
-if (localStorage.getItem('cartArr')) {
-  var cartArr = JSON.parse(localStorage.getItem('cartArr'));
+if (localStorage.getItem('curntUser')) {
+  var cart = JSON.parse(localStorage.getItem('curntUser'));
+  var cartArr = cart.myCart;
 }
 else {
   var cartArr = [];
 }
+
 
 fltr.addEventListener('keyup', () => {
   grid.innerHTML = ''
@@ -80,11 +82,6 @@ for (var i = 0; i < btns.length; i++) {
 
 function category(passedData) {
   var filteredData;
-
-  // let grid = document.querySelector(".products");
-  // grid.innerHTML=''
-  // console.log(grid)
-  // let filterInput = document.getElementById("fltr");
 
   if (passedData == 'all') {
     grid.innerHTML = ''
@@ -189,7 +186,23 @@ function addToCart(id) {
       item = ele;
     }
   })
-  cartArr.push(item);
-  localStorage.setItem('cartArr', JSON.stringify(cartArr));
-  // console.log(JSON.parse(localStorage.getItem('cartArr')));
+  // cartArr.push(item);
+  // console.log("Item is" ,cartArr);
+  // Retrieve the user's data from the localStorage
+  let currentUser = JSON.parse(localStorage.getItem("curntUser"));
+  // console.log(currentUser)
+  // Add the selected item to the myCart array
+  currentUser.myCart.push(item);
+  // Store the updated CurrntUser data back to localStorage
+  localStorage.setItem("curntUser", JSON.stringify(currentUser));
+
+  // Also store the updated user data back to localStorage
+  let currentUserList = JSON.parse(localStorage.getItem("Usr"));
+  const currentUserIndex = currentUserList.findIndex(user => user.email === currentUser.email);
+  if (currentUserIndex !== -1) {
+    currentUserList[currentUserIndex].myCart.push(item);
+    localStorage.setItem("Usr", JSON.stringify(currentUserList));
+  }
+  
+  alert("Item added..");
 }
