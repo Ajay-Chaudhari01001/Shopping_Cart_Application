@@ -10,11 +10,8 @@ function signup() {
   }
 
   else {
-
-
     if (Firstname == "" || email == "" || password == "" || confirmpass == "" || lastname == "") {
       document.getElementById("error").innerText = "Error: All the fields are mandatory";
-
     }
 
     else {
@@ -24,12 +21,12 @@ function signup() {
 
       // and storing value in arry form for diff userse and  chking for emails if user enter same email for signup show msg alredy used email
 
-
-      let Usr = JSON.parse(localStorage.getItem("Usr")) || [];   //get to localstorage if there is existing user ||or make empty array
-
+      // get to localstorage if there is existing user ||or make empty array
+      let Users = JSON.parse(localStorage.getItem("Usr")) || []; 
+      // console.log(typeof Usr);
       // chking for mail
 
-      if (Usr.find(usr => usr.email === email)) {
+      if (Users.find(usr => usr.email === email)) {
         alert('Email is already used.Please use  different one.');
         return;
       }
@@ -39,17 +36,16 @@ function signup() {
         firstName: Firstname,
         lastName: lastname,
         email: email,
-        password: password
+        password: password,
+        myCart:[]
       };
-      Usr.push(newUserEntered);
+      Users.push(newUserEntered);
 
-      localStorage.setItem("Usr", JSON.stringify(Usr));
+      localStorage.setItem("Usr", JSON.stringify(Users));
       alert("signed up sucessfully");
       window.location.href = "../login/login.html";
-
     }
   }
-
 }
 
 // generating random string
@@ -64,6 +60,3 @@ function generateString(length) {
 
   return result;
 }
-
-
-
