@@ -124,11 +124,6 @@ document.getElementById("rzp-button1").onclick = function (e) {
             "https://www.mintformations.co.uk/blog/wp-content/uploads/2020/05/shutterstock_583717939.jpg",
     };
 
-    if(currentUser.myCart != -1){
-        alert("Please add items for payment....")
-        return;
-    }
-
     var rzpy1 = new Razorpay(options);
     rzpy1.open();
     // clear mycart in CuuentUser and User - localStorage
