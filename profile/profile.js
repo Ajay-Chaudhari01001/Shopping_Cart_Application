@@ -54,7 +54,6 @@ function changepass() {
         alert("Old password incorrect.");
     }
 }
-
 function logout() {
     localStorage.removeItem("curntUser");
     window.location.href = "../index.html";
