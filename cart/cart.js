@@ -6,31 +6,27 @@ const itemContainer = document.querySelector('.items');
 const listContainer = document.querySelector('.list-container');
 const totalPrice = document.getElementById('total-price');
 var cartItem = [];
-var abc = JSON.parse(localStorage.getItem('cartArr'));
-// console.log(abc)
 
-if (JSON.parse(localStorage.getItem('cartArr'))) {
-    let myArr = JSON.parse(localStorage.getItem('cartArr'));
+const currentUser = JSON.parse(localStorage.getItem('curntUser'));
 
-    cartItem = myArr;
-
+if (currentUser) {
+    let cartArr = currentUser.myCart;
+    cartItem = cartArr;
     showCartItem(cartItem);
-    // console.log(totalPrice.innerHTML)
-
 }
 else {
-    totalPrice.innerHTML = "$0";
-    console.log(totalPrice.innerHTML)
+    totalPrice.innerHTML = "$0.00";
 }
 
 function showCartItem(Arr) {
     itemContainer.innerHTML = '';
     listContainer.innerHTML = '';
 
-    if (cartItem.length == 0) {
+    if (Arr == 0) {
         itemContainer.innerHTML = `
-        <h3 style='text-align: center;;'>No products found in Cart</h3>
+        <h3 style='text-align: center;'>No products found in Cart</h3>
         `;
+        totalPrice.innerHTML = "$0.00";
     }
 
     Arr.forEach((ele, index) => {
@@ -42,7 +38,7 @@ function showCartItem(Arr) {
           <div style="font-weight:bold" class="row">
             <div class="price">$${ele.price}</div>
           </div>
-          <div style='margin-top:10px;' class="row">Rating: ${Math.floor(ele.rating.rate)}</div>
+          
         </div>
         <button id="addBtn" onClick='removeFromCart(${ele.id})'>Remove From Cart</button>
       </div>
@@ -59,23 +55,36 @@ function showCartItem(Arr) {
     totalPrice.innerHTML = "$" + totalPriceFunc().toFixed(2);
 }
 
+// Function to remove an item from the cart
 function removeFromCart(id) {
-    // console.log("remove");
-    let itemToRemove;
-    let indexToRemove;
-    cartItem.forEach((item, index) => {
-        if (item.id == id) {
-            itemToRemove = item;
-            indexToRemove = index;
+    
+    // Retrieve the current user data from localStorage
+    let currentUser = JSON.parse(localStorage.getItem("curntUser"));
+    // Find the index of the item in the currentUser's myCart array
+    const itemIndex = currentUser.myCart.findIndex(item => item.id === id);
+    
+    if (itemIndex !== -1) {
+      // Remove the item from the currentUser's myCart array
+      currentUser.myCart.splice(itemIndex, 1); 
+      // Update the currentUser data in localStorage
+      localStorage.setItem("curntUser", JSON.stringify(currentUser));
+      
+      // Retrieve the user list from localStorage
+      let currentUserList = JSON.parse(localStorage.getItem("Usr"));
+      // Find the corresponding user in the user list array
+      const currentUserInList = currentUserList.find(user => user.email === currentUser.email);   
+      if (currentUserInList) {
+        // Find the index of the item in the corresponding user's myCart array
+        const userItemIndex = currentUserInList.myCart.findIndex(item => item.id === id);
+        if (userItemIndex !== -1) {
+          // Remove the item from the corresponding user's myCart array
+          currentUserInList.myCart.splice(userItemIndex, 1);  
+          // Update the user list data in localStorage
+          localStorage.setItem("Usr", JSON.stringify(currentUserList));
         }
-    })
-    // console.log(itemToRemove);
-    // splice method modified the current array, it's dose not make a new array..
-    cartItem.splice(indexToRemove, 1);
-
-    localStorage.setItem('cartArr', JSON.stringify(cartItem));
-    // console.log(cartItem);
-    showCartItem(cartItem);
+      }
+    }
+    showCartItem(currentUser.myCart);
 }
 
 if (cartItem.length == 0) {
@@ -97,14 +106,16 @@ function totalPriceFunc() {
 // https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/build-integration#code-to-add-pay-button
 
 document.getElementById("rzp-button1").onclick = function (e) {
+     // Assuming the payment is successful and you have a reference to the current user
+     let currentUser = JSON.parse(localStorage.getItem("curntUser"));
     var options = {
         // Enter the Key ID generated from the Dashboard
-        key: "rzp_test_zrT1Hy0dNJFJNq", 
+        key: "rzp_test_zrT1Hy0dNJFJNq",
         // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-        amount: totalPriceFunc() * 100, 
+        amount: totalPriceFunc() * 100,
         currency: "INR",
         name: "MyShop Checkout",
-         //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         description: "This is your order",
         theme: {
             color: "#000",
@@ -113,20 +124,28 @@ document.getElementById("rzp-button1").onclick = function (e) {
             "https://www.mintformations.co.uk/blog/wp-content/uploads/2020/05/shutterstock_583717939.jpg",
     };
 
+    if(currentUser.myCart != -1){
+        alert("Please add items for payment....")
+        return;
+    }
+
     var rzpy1 = new Razorpay(options);
     rzpy1.open();
-    // clear mycart - localStorage
-    localStorage.removeItem('cartArr');
+    // clear mycart in CuuentUser and User - localStorage
+    // Clear the myCart array for the current user
+    currentUser.myCart = [];
+    // Store the updated user data back to localStorage
+    localStorage.setItem("curntUser", JSON.stringify(currentUser));
 
-    cartItem = [];
+    // same process for userlist 
+    let currentUserList = JSON.parse(localStorage.getItem("Usr"));
+    const currentUserIndex = currentUserList.findIndex(user => user.email === currentUser.email);
+    if (currentUserIndex !== -1) {
+        currentUserList[currentUserIndex].myCart = [];
+        localStorage.setItem("Usr", JSON.stringify(currentUserList));
+      }
+    // Reset the cart total price to zero
+    totalPrice.innerHTML = "$0.00";
 
-    showCartItem(cartItem);
-
+    showCartItem(currentUser.myCart);
 };
-
-
-
-
-
-
-
